@@ -1,8 +1,4 @@
-{
-  self,
-  inputs,
-  ...
-}: {
+{  self,  inputs,  ... }: {
   flake.wrapperModules.kitty = {
     config,
     lib,
@@ -76,7 +72,7 @@
 
   perSystem = {pkgs, ...}: {
     packages.kitty =
-      (inputs.wrappers.wrapperModules.kitty.apply {
+      (inputs.wrapper-modules.wrappers.kitty.wrap {
         inherit pkgs;
         imports = [self.wrapperModules.kitty];
       }).wrapper;
