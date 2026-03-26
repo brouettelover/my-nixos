@@ -66,27 +66,27 @@
           "Mod+Shift+K".move-window-up = null;
           "Mod+Shift+J".move-window-down = null;
 
-          "Mod+1".focus-workspace = "w0";
-          "Mod+2".focus-workspace = "w1";
-          "Mod+3".focus-workspace = "w2";
-          "Mod+4".focus-workspace = "w3";
-          "Mod+5".focus-workspace = "w4";
-          "Mod+6".focus-workspace = "w5";
-          "Mod+7".focus-workspace = "w6";
-          "Mod+8".focus-workspace = "w7";
-          "Mod+9".focus-workspace = "w8";
-          "Mod+0".focus-workspace = "w9";
+          "Mod+ampersand".focus-workspace = "w0";
+          "Mod+eacute".focus-workspace = "w1";
+          "Mod+quotedbl".focus-workspace = "w2";
+          "Mod+quoteleft".focus-workspace = "w3";
+          "Mod+parenleft".focus-workspace = "w4";
+          "Mod+section".focus-workspace = "w5";
+          "Mod+egrave".focus-workspace = "w6";
+          "Mod+exclam".focus-workspace = "w7";
+          "Mod+ccedilla".focus-workspace = "w8";
+          "Mod+agrave".focus-workspace = "w9";
 
-          "Mod+Shift+1".move-column-to-workspace = "w0";
-          "Mod+Shift+2".move-column-to-workspace = "w1";
-          "Mod+Shift+3".move-column-to-workspace = "w2";
-          "Mod+Shift+4".move-column-to-workspace = "w3";
-          "Mod+Shift+5".move-column-to-workspace = "w4";
-          "Mod+Shift+6".move-column-to-workspace = "w5";
-          "Mod+Shift+7".move-column-to-workspace = "w6";
-          "Mod+Shift+8".move-column-to-workspace = "w7";
-          "Mod+Shift+9".move-column-to-workspace = "w8";
-          "Mod+Shift+0".move-column-to-workspace = "w9";
+          "Mod+Shift+ampersand".move-column-to-workspace = "w0";
+          "Mod+Shift+eacute".move-column-to-workspace = "w1";
+          "Mod+Shift+quotedbl".move-column-to-workspace = "w2";
+          "Mod+Shift+quoteleft".move-column-to-workspace = "w3";
+          "Mod+Shift+parenleft".move-column-to-workspace = "w4";
+          "Mod+Shift+section".move-column-to-workspace = "w5";
+          "Mod+Shift+egrave".move-column-to-workspace = "w6";
+          "Mod+Shift+exclam".move-column-to-workspace = "w7";
+          "Mod+Shift+ccedilla".move-column-to-workspace = "w8";
+          "Mod+Shift+agrave".move-column-to-workspace = "w9";
 
           "Mod+D".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
           "Mod+V".spawn-sh = ''${config.pkgs.alsa-utils}/bin/amixer sset Capture toggle'';
