@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  self,
   ...
 }: {
   perSystem = {
@@ -43,7 +44,7 @@
     };
   };
 
-  flake.nixosModules.fish = { pkgs, self, ... }: {
+  flake.nixosModules.fish = { pkgs, ... }: {
     programs.fish.enable = true;
     programs.fish.package = self.packages.${pkgs.system}.fish;
   };
