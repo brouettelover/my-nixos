@@ -84,7 +84,7 @@
 
   flake.nixosModules.kitty = { pkgs, ... }: {
     environment.systemPackages = [
-      self.packages.${pkgs.sytem}.kitty
+      self.packages.${pkgs.system}.kitty
     ];
   };
 }
