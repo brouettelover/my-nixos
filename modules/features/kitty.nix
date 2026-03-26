@@ -10,7 +10,7 @@
   }: {
     options.shell = lib.mkOption {
       type = lib.types.str;
-      default = "";
+      default = "fish";
     };
     config = {
       args = lib.mkAfter (lib.optionals (config.shell != "") [config.shell]);
