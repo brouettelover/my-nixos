@@ -1,5 +1,5 @@
 {  self,  inputs,  ... }: {
-  flake.wrapperModules.kitty = {    config,    lib,    ...  }:
+  flake.wrapperModules.kitty = { self',   config,    lib,    ...  }:
  {
     options.shell = lib.mkOption {
       type = lib.types.str;
