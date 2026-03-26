@@ -5,7 +5,7 @@
     imports = [
       self.nixosModules.pc_portable_hardware_configuration
       self.nixosModules.niri
-     # self.nixosModules.fish
+      self.nixosModules.fish
      # self.nixosModules.lf
      # self.nixosModules.nvim
      # self.nixosModules.kitty
