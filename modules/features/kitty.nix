@@ -1,9 +1,6 @@
 {  self,  inputs,  ... }: {
-  flake.wrapperModules.kitty = {
-    config,
-    lib,
-    ...
-  }: {
+  flake.wrapperModules.kitty = {    config,    lib,    ...  }:
+ {
     options.shell = lib.mkOption {
       type = lib.types.str;
       default = "";
@@ -69,10 +66,15 @@
       };
     };
   };
-
+  
+  flake.nixosModules.kitty = { pkgs, self, ... }: {
+    environment.systemPackages = [
+      self.packages.${pkgs.system}.kitty
+    ];
+  };
   perSystem = {pkgs, ...}: {
     packages.kitty =
-      (inputs.wrapper-modules.wrappers.kitty.wrap {
+      (inputs.wrappers.wrapperModules.kitty.apply {
         inherit pkgs;
         imports = [self.wrapperModules.kitty];
       }).wrapper;
