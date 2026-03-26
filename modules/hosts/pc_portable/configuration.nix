@@ -8,13 +8,26 @@
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    
+
     environment.systemPackages = with pkgs; [
       firefox
       vim
 
     ];
-    # ...
+    
+    boot = {
+      loader.grub.enable = true;
+      loader.grub.efiSupport = true;
+      loader.grub.efiInstallAsRemovable = true;
+
+      supportedFilesystems.ntfs = true;
+
+      kernelParams = ["quiet"];
+      kernelModules = [ "kvm_amd" "coretemp" "cpuid" "v4l2loopback" ];
+      
+
+
+    };
   };
 
 }
