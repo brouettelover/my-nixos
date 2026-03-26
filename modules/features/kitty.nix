@@ -83,6 +83,8 @@
   };
 
   flake.nixosModules.kitty = { pkgs, ... }: {
-    self.package = self.packages.${pkgs.stdenv.hostPlatform.system}.kitty;
+    environment.systemPackages = [
+      self.packages.${pkgs.sytem}.kitty
+    ];
   };
 }
