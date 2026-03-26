@@ -1,5 +1,5 @@
 {  self,  inputs,  ... }: {
-  flake.wrapperModules.kitty = { self',   config,    lib,    ...  }:
+  flake.wrapperModules.kitty = { self,   config,    lib,    ...  }:
  {
     options.shell = lib.mkOption {
       type = lib.types.str;
@@ -72,7 +72,7 @@
       self'.packages.${pkgs.system}.kitty
     ];
   };
-  perSystem = {pkgs, ...}: {
+  perSystem = {pkgs, self, ...}: {
     packages.kitty =
       (inputs.wrappers.wrapperModules.kitty.apply {
         inherit pkgs;
