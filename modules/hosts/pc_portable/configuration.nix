@@ -20,11 +20,13 @@
     ];
      
     boot = {
-      kernelPackages = pkgs.linuxPackages_latest;
+      #kernelPackages = pkgs.linuxPackages_latest;
 
-      loader.grub.enable = true;
-      loader.grub.efiSupport = true;
-      loader.grub.efiInstallAsRemovable = true;
+      loader.systemd-boot.enable = true;
+      loader.efi.canTouchEfiVariables = true;
+      #loader.grub.enable = true;
+      #loader.grub.efiSupport = true;
+      #loader.grub.efiInstallAsRemovable = true;
 
       supportedFilesystems.ntfs = true;
 
