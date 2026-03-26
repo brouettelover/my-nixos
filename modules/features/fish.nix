@@ -46,6 +46,6 @@
 
   flake.nixosModules.fish = { pkgs, ... }: {
     programs.fish.enable = true;
-    programs.fish.package = self.packages.${pkgs.system}.fish;
+    programs.fish.package = self.packages.${pkgs.stdenv.hostPlatform.system}.fish;
   };
 }
