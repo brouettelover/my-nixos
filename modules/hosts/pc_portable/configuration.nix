@@ -5,6 +5,10 @@
     imports = [
       self.nixosModules.pc_portable_hardware_configuration
       self.nixosModules.niri
+      self.nixosModules.fish
+      self.nixosModules.lf
+      self.nixosModules.nvim
+      self.nixosModules.kitty
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -103,7 +107,7 @@
       enable = true;
       settings = {
         default_session =  {
-	  command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd niri";
+	  command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri";
 	user = "jongleur";
 	};
       };
