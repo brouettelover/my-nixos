@@ -1,5 +1,5 @@
 {
-  input,
+  inputs,
   lib,
   self,
   ...
