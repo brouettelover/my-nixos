@@ -99,7 +99,25 @@
       };
     };
     
+    service.greetd = {
+      enable = true;
+      settings = {
+        default_session =  {
+	  command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd niri";
+	user = "jongleur";
+	};
+      };
+    };
 
+    systemd.services.greetd.serviceConfig =  {
+      Type = "idle";
+      StandardInput = "tty";
+      StandardOutput = "tty";
+      StandardError = "journal";
+      TTYReset = true;
+      TTYVHangup = true;
+      TTYDisallocate = true;
+    };
     programs.niri.enable = true;
 
     time.timeZone = "Europe/Brussels";
