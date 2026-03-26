@@ -167,9 +167,9 @@
     # '';
   };
   
-  flake.nixosModules.nvim = { pkgs, ... }: {
+  flake.nixosModules.neovim = { pkgs, ... }: {
     environment.systemPackages = [
-      self.packages.${pkgs.stdenv.hostPlatform.system}.nvim
+      self.packages.${pkgs.stdenv.hostPlatform.system}.neovim
     ];
   };
 }
