@@ -25,7 +25,7 @@
 
           keyboard = {
             xkb = {
-              layout = "us,ru,ua";
+              layout = "be";
               options = "grp:alt_shift_toggle,caps:escape";
             };
             repeat-rate = 40;
@@ -44,8 +44,9 @@
 
         binds = {
           "Mod+Return".spawn = config.terminal;
-
-          "Mod+Q".close-window = null;
+	  "Mod+D".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+          
+	  "Mod+Q".close-window = null;
           "Mod+F".maximize-column = null;
           "Mod+G".fullscreen-window = null;
           "Mod+Shift+F".toggle-window-floating = null;
@@ -104,9 +105,9 @@
           "Mod+Ctrl+WheelScrollDown".focus-workspace-down = null;
           "Mod+Ctrl+WheelScrollUp".focus-workspace-up = null;
 
-          "Mod+Ctrl+S".spawn-sh = ''${lib.getExe config.pkgs.grim} -l 0 - | ${config.pkgs.wl-clipboard}/bin/wl-copy'';
+          "Mod+Shift+C".spawn-sh = ''${lib.getExe config.pkgs.grim} -l 0 - | ${config.pkgs.wl-clipboard}/bin/wl-copy'';
 
-          "Mod+Shift+E".spawn-sh = ''${config.pkgs.wl-clipboard}/bin/wl-paste | ${lib.getExe config.pkgs.swappy} -f -'';
+          "Mod+Shift+V".spawn-sh = ''${config.pkgs.wl-clipboard}/bin/wl-paste | ${lib.getExe config.pkgs.swappy} -f -'';
 
           "Mod+Shift+S".spawn-sh = lib.getExe (config.pkgs.writeShellApplication {
             name = "screenshot";
