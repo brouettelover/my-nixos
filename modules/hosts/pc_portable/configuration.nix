@@ -8,7 +8,7 @@
       self.nixosModules.fish
      # self.nixosModules.lf
      # self.nixosModules.nvim
-      self.nixosModules.kitty
+     # self.nixosModules.kitty
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
