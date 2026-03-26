@@ -20,7 +20,6 @@
       btop
       bat
       git
-      grep
       unzip
     ];
      
