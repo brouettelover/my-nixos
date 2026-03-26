@@ -67,9 +67,9 @@
     };
   };
   
-  flake.nixosModules.kitty = { pkgs, self, ... }: {
+  flake.nixosModules.kitty = { pkgs, self', ... }: {
     environment.systemPackages = [
-      self.packages.${pkgs.system}.kitty
+      self'.packages.${pkgs.system}.kitty
     ];
   };
   perSystem = {pkgs, ...}: {
