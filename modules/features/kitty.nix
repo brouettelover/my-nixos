@@ -83,6 +83,6 @@
   };
 
   flake.nixosModules.kitty = { pkgs, ... }: {
-    programs.fish.package = self.packages.${pkgs.stdenv.hostPlatform.system}.kitty;
+    programs.kitty.package = self.packages.${pkgs.stdenv.hostPlatform.system}.kitty;
   };
 }
