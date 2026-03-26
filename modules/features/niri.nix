@@ -115,7 +115,7 @@
               | ${config.pkgs.wl-clipboard}/bin/wl-copy
             '';
           });
-
+	};
         layout = {
           gaps = 5;
 
