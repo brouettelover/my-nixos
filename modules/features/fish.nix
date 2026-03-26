@@ -32,7 +32,7 @@
         end
       '';
   in {
-    packages.fish = inputs.wrapper-modules.wrappers.lib.wrapPackage {
+    packages.fish = inputs.wrappers.lib.wrapPackage {
       inherit pkgs;
       package = pkgs.fish;
       runtimeInputs = [
