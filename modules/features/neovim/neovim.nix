@@ -172,5 +172,4 @@
       self.packages.${pkgs.stdenv.hostPlatform.system}.nvim
     ];
   };
-  environment.variables.EDITOR = "nvim";
 }
