@@ -186,7 +186,7 @@
           noctaliaExe
           (lib.getExe (
             pkgs.writeShellScriptBin "wallpaper"
-            "${lib.getExe pkgs.swaybg} -i ${./wallpapers/coffee.png} -m fill"
+            "${lib.getExe pkgs.swaybg} -i ${../../wallpapers/coffee.png} -m fill"
           ))
         ];
       };
