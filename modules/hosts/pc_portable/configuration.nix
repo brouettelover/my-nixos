@@ -122,7 +122,7 @@
       TTYVHangup = true;
       TTYDisallocate = true;
     };
-    programs.niri.enable = true;
+    #programs.niri.enable = true;
 
     time.timeZone = "Europe/Brussels";
  
