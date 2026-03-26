@@ -1,6 +1,6 @@
-{  self,  inputs,  ... }: {
-  flake.wrapperModules.kitty = { self,   config,    lib,    ...  }:
- {
+{ self, inputs, ...}: {
+  # Ce bloc définit la configuration du wrapper kitty
+  flake.wrapperModules.kitty = { config, lib, ... }: {
     options.shell = lib.mkOption {
       type = lib.types.str;
       default = "";
@@ -9,17 +9,12 @@
       args = lib.mkAfter (lib.optionals (config.shell != "") [config.shell]);
       settings = {
         enable_audio_bell = "no";
-
         font_size = 15;
         font_family = "JetBrainsMono Nerd Font";
-
         cursor_text_color = "background";
-
         allow_remote_control = "yes";
         shell_integration = "enabled";
-
         cursor_trail = 3;
-
         map = [
           "alt+1 goto_tab 1"
           "alt+2 goto_tab 2"
@@ -34,19 +29,14 @@
           "ctrl+t new_tab_with_cwd"
           "ctrl+shift+t new_tab"
         ];
-
         background = self.theme.base00;
         foreground = self.theme.base07;
-
         cursor = self.theme.base07;
-
         selection_foreground = self.theme.base02;
         selection_background = self.theme.base01;
-
         active_tab_foreground = self.theme.base0B;
         active_tab_background = self.theme.base03;
         inactive_tab_background = self.theme.base01;
-
         color0 = self.theme.base00;
         color8 = self.theme.base02;
         color1 = self.theme.base08;
@@ -66,17 +56,19 @@
       };
     };
   };
-  
-  flake.nixosModules.kitty = { pkgs, self', ... }: {
+
+  # --- AJOUT : Définition du module NixOS ---
+  flake.nixosModules.kitty = { pkgs, ... }: {
     environment.systemPackages = [
-      self'.packages.${pkgs.system}.kitty
+      self.packages.${pkgs.system}.kitty
     ];
   };
-  perSystem = {pkgs, self, ...}: {
-    packages.kitty =
-      (inputs.wrappers.wrapperModules.kitty.apply {
-        inherit pkgs;
-        imports = [self.wrapperModules.kitty];
-      }).wrapper;
+  # ------------------------------------------
+
+  perSystem = {pkgs, ...}: {
+    packages.kitty = (inputs.wrappers.wrapperModules.kitty.apply {
+      inherit pkgs;
+      imports = [self.wrapperModules.kitty];
+    }).wrapper;
   };
 }
