@@ -16,7 +16,7 @@
       btop
       bat
       git
-
+      unzip
     ];
      
     boot = {
