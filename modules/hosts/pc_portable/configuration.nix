@@ -39,8 +39,6 @@
       plymouth.enable = true; # animation au boot
     };
     
-    security.polkit.enable = true;
-    
     users.users.jongleur = {
       isNormalUser = true;
       description = "jongleur";
