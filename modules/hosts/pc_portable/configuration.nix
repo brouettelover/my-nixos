@@ -44,7 +44,7 @@
     };
 
     networking = {
-      hostname = "pc-portable";
+      hostName = "pc-portable";
       networkmanager.enable = true;
     };
 
