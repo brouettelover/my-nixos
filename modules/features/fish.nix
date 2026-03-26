@@ -1,8 +1,17 @@
 {
+  self,
   inputs,
   lib,
   ...
-}: {
+}: 
+  flake.nixosModules.fish = { pkgs, lib, ... }: {
+    programs.fish = {
+      enable = true;
+      package = self.packages.${pkgs.stdenv.hostPlatform.system}.myFish;
+    };
+  };
+
+{
   perSystem = {
     pkgs,
     self',
