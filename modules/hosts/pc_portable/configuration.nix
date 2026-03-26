@@ -20,10 +20,8 @@
     ];
      
     boot = {
-      loader.grub.enable = true;
-      loader.grub.efiSupport = true;
-      loader.grub.efiInstallAsRemovable = true;
-      loader.grub.device = "nodev";
+      loader.systemd-boot.enable = true;
+      loader.efi.canTouchEfiVariables = true;
       supportedFilesystems.ntfs = true;
 
       kernelParams = ["quiet"];
