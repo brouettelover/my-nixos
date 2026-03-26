@@ -44,7 +44,6 @@
 
         binds = {
           "Mod+Return".spawn = config.terminal;
-	  "Mod+D".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
           
 	  "Mod+Q".close-window = null;
           "Mod+F".maximize-column = null;
@@ -89,7 +88,7 @@
           "Mod+Shift+9".move-column-to-workspace = "w8";
           "Mod+Shift+0".move-column-to-workspace = "w9";
 
-          "Mod+S".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
+          "Mod+D".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
           "Mod+V".spawn-sh = ''${config.pkgs.alsa-utils}/bin/amixer sset Capture toggle'';
 
           "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
