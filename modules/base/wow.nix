@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     lutris
     protonup-qt
     mangohud
@@ -9,9 +9,9 @@
     wowup-cf
   ];
 
-  home.sessionVariables = {
+  environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     GAMEMODE_PATH = "$HOME/.local/share/gamemode";
-    };
+  };
   
-  }
+}
