@@ -6,7 +6,7 @@
       self.nixosModules.pc_portable_hardware_configuration
       self.nixosModules.niri
       self.nixosModules.fish
-     # self.nixosModules.lf
+      self.nixosModules.wow
       self.nixosModules.neovim
       self.nixosModules.kitty
     ];
