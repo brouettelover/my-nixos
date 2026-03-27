@@ -4,7 +4,7 @@
 
  
   flake.nixosModules.wow = { pkgs, ... }: {
-    environment.sessionVariables = {
+    environment.sessionVariables = {  
       NIXOS_OZONE_WL = "1";
       GAMEMODE_PATH = "$HOME/.local/share/gamemode";
     };
