@@ -5,7 +5,7 @@
       options.pwned.enable = true;
       
       config = {
-        wrappedPackage = pkgs.symlinkJoin {
+        package = pkgs.symlinkJoin {
           name = "pwned-tools";
           paths = [
             (pkgs.python3.withPackages (ps: [ ps.pwntools ]))
