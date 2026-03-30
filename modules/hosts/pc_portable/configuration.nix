@@ -9,7 +9,9 @@
       #self.nixosModules.wow
       self.nixosModules.neovim
       self.nixosModules.kitty
+      self.nixosModules.pwned
     ];
+
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nixpkgs.config.allowUnfree = true;
