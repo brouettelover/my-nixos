@@ -25,6 +25,7 @@
       unzip
       wl-clipboard
       python3
+      keepassxc
     ];
      
     boot = {
