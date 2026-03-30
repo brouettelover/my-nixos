@@ -17,12 +17,12 @@
     };
     
     perSystem = { pkgs, ... }: {
-      packages.pwned = (inputs.wrappers.wrapperModules.program.apply {
-        inherit pkgs;
-        # On importe notre module de définition
-        imports = [ self.wrapperModules.pwned ];
-        # On peut même surcharger des trucs ici si on veut
-      }).wrapper;
+        packages.pwned = (pkgs.lib.evalModules {
+          modules = [
+            self.wrapperModules.pwned
+         { _module.args.pkgs = pkgs; } # On injecte pkgs dans le module
+        ];
+        }).config.pwned.package;
     };
 
     flake.nixosModules.pwned = { pkgs, ... }: {
