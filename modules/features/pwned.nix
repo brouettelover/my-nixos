@@ -2,14 +2,11 @@
 
 {
     flake.wrapperModules.pwned = { pkgs, lib, ... }: {
-      options.pwned = {
-        enableGef = true;
-        extraPythonPackages = ps: [ ps.pwntools ];
-      };
+      options.pwned.enable = true;
       
       config = {
-        package = pkgs.symlinkJoin {
-          name = "pwned-env";
+        wrappedPackage = pkgs.symlinkJoin {
+          name = "pwned-tools";
           paths = [
             (pkgs.python3.withPackages (ps: [ ps.pwntools ]))
             pkgs.gdb
