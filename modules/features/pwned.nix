@@ -30,7 +30,7 @@
 
     flake.nixosModules.pwned = { pkgs, ... }: {
       environment.systemPackages = [
-        self.packages.${pkgs.stdenv.hostPlatform.system}.pwned;
+        self.packages.${pkgs.stdenv.hostPlatform.system}.pwned
       ];
     };
 
