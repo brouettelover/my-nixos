@@ -6,9 +6,9 @@
       self.nixosModules.pc_portable_hardware_configuration
       self.nixosModules.niri
       self.nixosModules.fish
-      self.nixosModules.wow
+      #self.nixosModules.wow
       self.nixosModules.neovim
-      self.nixosModules.kitty
+      self.wrapperModules.kitty
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];

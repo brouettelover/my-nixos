@@ -45,7 +45,7 @@
         binds = {
           "Mod+Return".spawn = config.terminal;
           
-	  "Mod+Q".close-window = null;
+	      "Mod+Q".close-window = null;
           "Mod+F".maximize-column = null;
           "Mod+G".fullscreen-window = null;
           "Mod+Shift+F".toggle-window-floating = null;
