@@ -22,6 +22,7 @@
       git
       unzip
       wl-clipboard
+      python3
     ];
      
     boot = {
