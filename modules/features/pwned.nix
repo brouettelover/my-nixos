@@ -17,7 +17,7 @@
     };
     
     perSystem = { pkgs, ... }: {
-      packages.pwned = (inputs.wrappers.wrapperModules.pwned.apply {
+      packages.pwned = (inputs.wrappers.wrapperModules.program.apply {
         inherit pkgs;
         # On importe notre module de définition
         imports = [ self.wrapperModules.pwned ];
