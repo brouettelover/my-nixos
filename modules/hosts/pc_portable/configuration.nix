@@ -21,6 +21,7 @@
       bat
       git
       unzip
+      wl-clipboard
     ];
      
     boot = {
