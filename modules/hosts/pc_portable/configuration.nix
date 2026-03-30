@@ -8,7 +8,7 @@
       self.nixosModules.fish
       #self.nixosModules.wow
       self.nixosModules.neovim
-      self.wrapperModules.kitty
+      self.nixosModules.kitty
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
