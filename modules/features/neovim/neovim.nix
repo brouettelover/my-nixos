@@ -35,7 +35,7 @@
     };
     options.settings.unwrapped_config = lib.mkOption {
       type = lib.types.either wlib.types.stringable lib.types.luaInline;
-      default = lib.generators.mkLuaInline "vim.uv.os_homedir() .. '/nixconf/modules/wrappedPrograms/neovim'";
+      default = lib.generators.mkLuaInline "vim.uv.os_homedir() .. '/nixos_v2/modules/features/neovim'";
     };
     config.settings.dont_link = config.binName != "nvim";
     config.binName = lib.mkIf config.settings.test_mode (lib.mkDefault "vim");
@@ -123,7 +123,7 @@
     packages.neovimDynamic = pkgs.writeShellApplication {
       name = "nvim";
       text = ''
-        if [ -d ~/nixconf/modules/wrappedPrograms/neovim/lua ]; then
+        if [ -d ~/nixos_v2/modules/features/neovim/lua ]; then
             # start dev mode
             ${lib.getExe self'.packages.devMode} "$@"
         else
