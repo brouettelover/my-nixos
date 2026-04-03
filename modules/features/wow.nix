@@ -9,10 +9,7 @@
     };
  
     environment.systemPackages = [
-        pkgs.lutris
         pkgs.protonup-qt
-        pkgs.mangohud
-        pkgs.gamemode
         pkgs.wowup-cf
     ];
   };
