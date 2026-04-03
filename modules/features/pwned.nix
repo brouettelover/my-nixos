@@ -12,6 +12,7 @@
     config.pwned.package = pkgs.symlinkJoin {
       name = "pwned-tools";
       paths = [
+        pkgs.ghidra
         pkgs.gef # GEF inclut déjà GDB configuré !
         (pkgs.python3.withPackages (ps: [ ps.pwntools ]))
       ];
