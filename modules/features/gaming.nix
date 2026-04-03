@@ -10,6 +10,7 @@
 
     config.gaming.package = pkgs.symlinkJoin {
       name = "gaming-tools";
+      nixpkgs.config.allowUnfree = true;
       programs.steam = {
         enable = true;
         remotePlay.openFirewall = true;
