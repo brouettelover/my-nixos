@@ -39,6 +39,9 @@
 
   # 3. LA LIVRAISON (Installation sur NixOS)
   flake.nixosModules.gaming = { pkgs, ... }: {
+    imports = [
+        self.nixosModules.wow
+    ];
     environment.systemPackages = [
       self.packages.${pkgs.stdenv.hostPlatform.system}.gaming
     ];
