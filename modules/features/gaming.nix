@@ -1,4 +1,4 @@
-{ inputs, self, ... }:
+{ inputs, self, nixpkgs, ... }:
 
 {
   # 1. LE PLAN (Ton module de configuration)
@@ -23,6 +23,9 @@
 
   # 2. L'USINE (Construction du paquet pour chaque système)
   perSystem = { pkgs, ... }: {
+    _module.args.pkgs = import nixpkgs {
+      config.allowUnfree = true; 
+    };
     packages.gaming = (pkgs.lib.evalModules {
       modules = [
         self.wrapperModules.gaming
