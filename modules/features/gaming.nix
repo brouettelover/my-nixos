@@ -33,7 +33,6 @@
 
   # 3. LA LIVRAISON (Installation sur NixOS)
   flake.nixosModules.gaming = { pkgs, ... }: {
-    nixpkgs.config.allowUnfree = true; 
 
     programs.steam = {
         enable = true;
