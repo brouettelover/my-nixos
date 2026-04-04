@@ -23,9 +23,6 @@
 
   # 2. L'USINE (Construction du paquet pour chaque système)
   perSystem = { pkgs, ... }: {
-    _module.args.pkgs = import nixpkgs {
-      config.allowUnfree = true; 
-    };
     packages.gaming = (pkgs.lib.evalModules {
       modules = [
         self.wrapperModules.gaming
@@ -36,7 +33,7 @@
 
   # 3. LA LIVRAISON (Installation sur NixOS)
   flake.nixosModules.gaming = { pkgs, ... }: {
-
+    nixpkgs.config.allowUnfree = true;
     programs.steam = {
         enable = true;
         remotePlay.openFirewall = true;
