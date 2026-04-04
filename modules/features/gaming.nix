@@ -22,16 +22,24 @@
   };
 
   # 2. L'USINE (Construction du paquet pour chaque système)
-  perSystem = { pkgs, ... }: {
-    packages.gaming = (pkgs.lib.evalModules {
-      modules = [
-        self.wrapperModules.gaming
-        { _module.args.pkgs = pkgs; }
-      ];
-    }).config.gaming.package;
-  };
+  perSystem = { system, ... }: 
+    let
+    # ON FORCE L'UNFREE ICI pour que Lutris puisse être construit
+      pkgsUnfree = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in {
+    # On utilise pkgsUnfree au lieu du pkgs standard
+      packages.gaming = (pkgsUnfree.lib.evalModules {
+        modules = [
+          self.wrapperModules.gaming
+          { _module.args.pkgs = pkgsUnfree; }
+        ];
+      }).config.gaming.package;
+    };
 
-  # 3. LA LIVRAISON (Installation sur NixOS)
+# 3. LA LIVRAISON (Installation sur NixOS)
   flake.nixosModules.gaming = { pkgs, ... }: {
     nixpkgs.config.allowUnfree = true;
     programs.steam = {
