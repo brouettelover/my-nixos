@@ -8,14 +8,6 @@
       type = pkgs.lib.types.package;
     };
 
-    nixpkgs.config.allowUnfree = true;
-      programs.steam = {
-        enable = true;
-        remotePlay.openFirewall = true;
-        #dedicatedServer.openFirewall = true;
-      };
-    zramSwap.enable = true;
-
     config.gaming.package = pkgs.symlinkJoin {
       name = "gaming-tools";
             
@@ -41,9 +33,19 @@
 
   # 3. LA LIVRAISON (Installation sur NixOS)
   flake.nixosModules.gaming = { pkgs, ... }: {
+    
+    programs.steam = {
+        enable = true;
+        remotePlay.openFirewall = true;
+        #dedicatedServer.openFirewall = true;
+      };
+    zramSwap.enable = true;
+
+
     imports = [
         self.nixosModules.wow
     ];
+    
     environment.systemPackages = [
       self.packages.${pkgs.stdenv.hostPlatform.system}.gaming
     ];
