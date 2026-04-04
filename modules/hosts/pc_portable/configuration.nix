@@ -1,6 +1,7 @@
 { self, inputs, ... }: {
 
   flake.nixosModules.pc_portable_configuration = { pkgs, lib, ... }: {
+    nixpkgs.config.allowUnfree = true;    
     # import any other modules from here
     imports = [
       self.nixosModules.pc_portable_hardware_configuration
@@ -14,7 +15,6 @@
 
     programs.nix-ld.enable = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
-    nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
       firefox
       vim
