@@ -8,15 +8,17 @@
       type = pkgs.lib.types.package;
     };
 
-    config.gaming.package = pkgs.symlinkJoin {
-      name = "gaming-tools";
-      nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;
       programs.steam = {
         enable = true;
         remotePlay.openFirewall = true;
         #dedicatedServer.openFirewall = true;
       };
-      
+    zramSwap.enable = true;
+
+    config.gaming.package = pkgs.symlinkJoin {
+      name = "gaming-tools";
+            
       paths = [
         pkgs.lutris
         pkgs.wineWowPackages.stable
@@ -24,8 +26,7 @@
         pkgs.mangohud
       ];
 
-      zramSwap.enable = true;
-    };
+         };
   };
 
   # 2. L'USINE (Construction du paquet pour chaque système)
