@@ -13,7 +13,7 @@
             
       paths = [
         pkgs.lutris
-        pkgs.wineWowPackages.stable
+        pkgs.wineWow64Packages.stable
         pkgs.winetricks
         pkgs.mangohud
       ];
