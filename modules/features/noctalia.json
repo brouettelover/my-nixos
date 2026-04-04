@@ -145,6 +145,7 @@
           },
           {
             "deviceNativePath": "BAT0",
+            "useAcpi": true,
             "displayMode": "graphic-clean",
             "hideIfIdle": false,
             "hideIfNotDetected": true,
