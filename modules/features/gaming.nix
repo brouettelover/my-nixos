@@ -18,7 +18,7 @@
         pkgs.mangohud
       ];
 
-         };
+    };
   };
 
   # 2. L'USINE (Construction du paquet pour chaque système)
@@ -33,7 +33,8 @@
 
   # 3. LA LIVRAISON (Installation sur NixOS)
   flake.nixosModules.gaming = { pkgs, ... }: {
-    
+    nixpkgs.allowUnfree = true; 
+
     programs.steam = {
         enable = true;
         remotePlay.openFirewall = true;
