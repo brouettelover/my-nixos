@@ -69,7 +69,7 @@
           "Mod+ampersand".focus-workspace = "w0";
           "Mod+eacute".focus-workspace = "w1";
           "Mod+quotedbl".focus-workspace = "w2";
-          "Mod+quote".focus-workspace = "w3";
+          "Mod+apostrophe".focus-workspace = "w3";
           "Mod+parenleft".focus-workspace = "w4";
           "Mod+section".focus-workspace = "w5";
           "Mod+egrave".focus-workspace = "w6";
@@ -80,7 +80,7 @@
           "Mod+Shift+ampersand".move-column-to-workspace = "w0";
           "Mod+Shift+eacute".move-column-to-workspace = "w1";
           "Mod+Shift+quotedbl".move-column-to-workspace = "w2";
-          "Mod+Shift+quote".move-column-to-workspace = "w3";
+          "Mod+Shift+apostrophe".move-column-to-workspace = "w3";
           "Mod+Shift+parenleft".move-column-to-workspace = "w4";
           "Mod+Shift+section".move-column-to-workspace = "w5";
           "Mod+Shift+egrave".move-column-to-workspace = "w6";
