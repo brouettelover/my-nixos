@@ -69,7 +69,7 @@
           "Mod+ampersand".focus-workspace = "w0";
           "Mod+eacute".focus-workspace = "w1";
           "Mod+quotedbl".focus-workspace = "w2";
-          "Mod+quoteleft".focus-workspace = "w3";
+          "Mod+quote".focus-workspace = "w3";
           "Mod+parenleft".focus-workspace = "w4";
           "Mod+section".focus-workspace = "w5";
           "Mod+egrave".focus-workspace = "w6";
