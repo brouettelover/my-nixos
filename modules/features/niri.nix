@@ -80,7 +80,7 @@
           "Mod+Shift+ampersand".move-column-to-workspace = "w0";
           "Mod+Shift+eacute".move-column-to-workspace = "w1";
           "Mod+Shift+quotedbl".move-column-to-workspace = "w2";
-          "Mod+Shift+quoteleft".move-column-to-workspace = "w3";
+          "Mod+Shift+quote".move-column-to-workspace = "w3";
           "Mod+Shift+parenleft".move-column-to-workspace = "w4";
           "Mod+Shift+section".move-column-to-workspace = "w5";
           "Mod+Shift+egrave".move-column-to-workspace = "w6";
