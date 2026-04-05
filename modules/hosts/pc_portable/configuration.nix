@@ -26,6 +26,8 @@
       wl-clipboard
       python3
       keepassxc
+      mullvad-vpn
+      mullvad-browser
     ];
      
     boot = {
