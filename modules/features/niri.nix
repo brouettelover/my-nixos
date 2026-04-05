@@ -53,7 +53,6 @@
 
           "Mod+H".focus-column-left = null;
           "Mod+L".focus-column-right = null;
-          "Mod+K".focus-window-up = null;
           "Mod+J".focus-window-down = null;
           
           "Mod+Left".focus-column-left = null;
