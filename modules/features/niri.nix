@@ -90,7 +90,7 @@
 
           "Mod+D".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
           "Mod+V".spawn-sh = ''${config.pkgs.alsa-utils}/bin/amixer sset Capture toggle'';
-          "Mod+k".spawn-sh = "${pkgs.keepassxc}";
+          "Mod+K".spawn-sh = "${pkgs.keepassxc}";
           "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
           "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
 
