@@ -27,7 +27,7 @@
       python3
       keepassxc
       mullvad-vpn
-      mullvad-browser
+      
     ];
      
     boot = {
@@ -119,7 +119,11 @@
 	};
       };
     };
-
+    # VPN Settings
+    services.mullvad-vpn.enable = true;
+    services.mullvad-vpn.package = pkgs.mullvad-vpn;
+    services.resolved.enable = true;
+    
     systemd.services.greetd.serviceConfig =  {
       Type = "idle";
       StandardInput = "tty";
