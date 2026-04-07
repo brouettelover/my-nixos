@@ -11,12 +11,12 @@
       self.nixosModules.neovim
       self.nixosModules.kitty
       self.nixosModules.pwned
+      self.nixosModules.firefox
     ];
 
     programs.nix-ld.enable = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     environment.systemPackages = with pkgs; [
-      firefox
       vim
       wget
       btop
