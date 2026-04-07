@@ -27,7 +27,7 @@
       python3
       keepassxc
       mullvad-vpn
-      
+      quickemu      
     ];
      
     boot = {
@@ -102,7 +102,6 @@
     xdg.portal.config.common.default = [ "gnome" "gtk" ]; 
 
     nix = {
-      settings.auto-optimise-store = true; # Saves space by hardlinking files
       gc = {
         automatic = true;
         dates = "weekly";
