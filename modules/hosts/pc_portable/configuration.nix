@@ -12,7 +12,7 @@
       self.nixosModules.kitty
       self.nixosModules.pwned
       self.nixosModules.firefox
-      self.nixosModules.web-exploit
+      self.nixosModules.web_exploit
     ];
 
 
