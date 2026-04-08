@@ -13,6 +13,7 @@
       self.nixosModules.pwned
       self.nixosModules.firefox
       self.nixosModules.web_exploit
+      self.nixosModules.network
     ];
 
 
