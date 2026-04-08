@@ -12,7 +12,9 @@
       self.nixosModules.kitty
       self.nixosModules.pwned
       self.nixosModules.firefox
+      self.nixosModules.web-exploit
     ];
+
 
     programs.nix-ld.enable = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
