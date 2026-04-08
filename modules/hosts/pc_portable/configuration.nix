@@ -21,6 +21,7 @@
     programs.nix-ld.enable = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     environment.systemPackages = with pkgs; [
+      pcmanfm-qt
       vim
       wget
       btop
@@ -126,7 +127,10 @@
     services.mullvad-vpn.enable = true;
     services.mullvad-vpn.package = pkgs.mullvad-vpn;
     services.resolved.enable = true;
-    
+    services.gvfs.enable = true; # Add usb mount in file manager   
+    services.udisks2.enable = true; # auto mount usb
+    services.devmon.enable = true; # auto mount usb
+
     systemd.services.greetd.serviceConfig =  {
       Type = "idle";
       StandardInput = "tty";
