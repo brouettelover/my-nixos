@@ -8,11 +8,23 @@
       type = pkgs.lib.types.package;
     };
 
-    config.firefox.package = pkgs.symlinkJoin {
-      name = "firefox-tools";
-      paths = [
-        pkgs.firefox
-      ];
+    config.firefox.package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+      # On utilise extraPolicies pour forcer l'installation de l'extension
+      extraPolicies = {
+        ExtensionSettings = {
+          "uBlock0@raymondhill.net" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+            installation_mode = "force_installed";
+          };
+          "FoxyProxy@erosman" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/file/4472757/latest.xpi";
+            installation_mode = "force_installed";            
+          };
+        };
+        # Optionnel : Désactiver le premier lancement ou d'autres trucs pénibles
+        DisableFirefoxAccounts = false;
+        NoDefaultBookmarks = false;
+      };
     };
   };
 
