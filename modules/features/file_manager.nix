@@ -11,12 +11,12 @@
     config.file_manager.package = pkgs.symlinkJoin {
       name = "file_manager-tools";
       paths = [
-        pkgs.xfce.thunar
-        pkgs.xfce.thunar-archive-plugin
-        pkgs.xfce.thunar-dropbox-plugin
-        pkgs.xfce.thunar-media-tags-plugin
-        pkgs.xfce.thunar-vcs-plugin
-        pkgs.xfce.thunar-volman
+        pkgs.thunar
+        pkgs.thunar-archive-plugin
+        pkgs.thunar-dropbox-plugin
+        pkgs.thunar-media-tags-plugin
+        pkgs.thunar-vcs-plugin
+        pkgs.thunar-volman
       ];
     };
   };
