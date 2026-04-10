@@ -17,8 +17,8 @@
       settings = let
         # startNoctaliaExe = lib.getExe self.packages.${config.pkgs.stdenv.hostPlatform.system}.start-noctalia-shell;
         noctaliaExe = lib.getExe self.packages.${config.pkgs.stdenv.hostPlatform.system}.noctalia-shell;
-        lockCommand = lib.getExe self.packages.${config.pkgs.stdenv.hostPlatform.system}.noctalia-lock;
-        in {
+        lockCommand = "${pkgs.noctalia-shell}/bin/noctalia-lock";
+      in {
         prefer-no-csd = null;
 
         input = {
