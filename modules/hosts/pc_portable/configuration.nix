@@ -15,6 +15,7 @@
       self.nixosModules.web_exploit
       self.nixosModules.network_analysis
       self.nixosModules.network_exploit
+      self.nixosModules.file_manager
     ];
 
 
