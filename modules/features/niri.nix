@@ -17,7 +17,8 @@
       settings = let
         # startNoctaliaExe = lib.getExe self.packages.${config.pkgs.stdenv.hostPlatform.system}.start-noctalia-shell;
         noctaliaExe = lib.getExe self.packages.${config.pkgs.stdenv.hostPlatform.system}.noctalia-shell;
-      in {
+        lockCommand = lib.getExe self.packages.${config.pkgs.stdenv.hostPlatform.system}.noctalia-lock;
+        in {
         prefer-no-csd = null;
 
         input = {
@@ -52,7 +53,6 @@
           "Mod+C".center-column = null;
 
           "Mod+H".focus-column-left = null;
-          "Mod+L".focus-column-right = null;
           "Mod+J".focus-window-down = null;
           
           "Mod+Left".focus-column-left = null;
@@ -87,6 +87,7 @@
           "Mod+Shift+ccedilla".move-column-to-workspace = "w8";
           "Mod+Shift+agrave".move-column-to-workspace = "w9";
 
+          "Mod+L".spawn-sh = "${lockCommand}";
           "Mod+D".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
           "Mod+V".spawn-sh = ''${config.pkgs.alsa-utils}/bin/amixer sset Capture toggle'';
           "Mod+K".spawn-sh = "${pkgs.keepassxc}/bin/keepassxc";
