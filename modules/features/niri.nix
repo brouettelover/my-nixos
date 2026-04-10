@@ -86,7 +86,7 @@
           "Mod+Shift+ccedilla".move-column-to-workspace = "w8";
           "Mod+Shift+agrave".move-column-to-workspace = "w9";
             
-          "Mod+L".spawn-sh = "${noctaliaExe} ipc call lockscreen lock"
+          "Mod+L".spawn-sh = "${noctaliaExe} ipc call lockscreen lock";
           "Mod+D".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
           "Mod+V".spawn-sh = ''${config.pkgs.alsa-utils}/bin/amixer sset Capture toggle'';
           "Mod+K".spawn-sh = "${pkgs.keepassxc}/bin/keepassxc";
