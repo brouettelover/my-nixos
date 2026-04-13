@@ -55,7 +55,7 @@
       plymouth = {
         enable = true; # animation au boot
         themePackages = [ pkgs.adi1090x-plymouth-themes ];
-        theme = "Hexagon Dots Alt";
+        theme = "Connect";
         };
     };
     
