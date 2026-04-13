@@ -54,8 +54,8 @@
 
       plymouth = {
         enable = true; # animation au boot
-        #themePackages = [ pkgs.adi1090x-plymouth-themes ];
-        #theme = "Connect";
+        themePackages = [ pkgs.adi1090x-plymouth-themes ];
+        theme = "Hexagon-HUD";
         };
     };
     
