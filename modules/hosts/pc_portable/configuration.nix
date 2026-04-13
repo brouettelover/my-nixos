@@ -52,7 +52,11 @@
       #kvm_amd -> pour qemu
       #v4l2 -> option dans teams,zoom,...
 
-      plymouth.enable = true; # animation au boot
+      plymouth = {
+        enable = true; # animation au boot
+        themePackages = [ pkgs.adi1090x-plymouth-themes ];
+        theme = "Hexagon Dots Alt";
+        };
     };
     
     users.users.jongleur = {
@@ -118,9 +122,9 @@
       enable = true;
       settings = {
         default_session =  {
-	  command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri";
-	user = "jongleur";
-	};
+	      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri";
+	      user = "jongleur";
+	    };
       };
     };
     # VPN Settings
