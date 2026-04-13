@@ -54,9 +54,16 @@
 
       plymouth = {
         enable = true; # animation au boot
-        themePackages = [ pkgs.adi1090x-plymouth-themes ];
-        theme = "Hexagon-HUD";
-        };
+         # 1. On ne prend QUE le thème qui nous intéresse
+            themePackages = [
+            (pkgs.adi1090x-plymouth-themes.override {
+                selected_themes = [ "cross_hud" ]; # <--- Remplace par ton préféré (ex: "target", "spinner", etc.)
+            })
+        ];
+
+        # 2. On spécifie le même nom ici
+        theme = "cross_hud";
+      };
     };
     
     users.users.jongleur = {
