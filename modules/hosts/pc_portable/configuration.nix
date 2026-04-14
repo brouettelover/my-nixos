@@ -31,9 +31,10 @@
       wl-clipboard
       python3
       keepassxc
-      cage
       mullvad-vpn
       quickemu      
+      sddm-maya-theme
+      libsForQt5.qt5.qtgraphicaleffects
     ];
      
     boot = {
@@ -126,32 +127,16 @@
       };
     };
     
-    services.greetd = {
+    services.displayManager.sddm = {
       enable = true;
-      settings = {
-        default_session =  {
-	      command = "XKB_DEFAULT_LAYOUT=be ${lib.getExe pkgs.cage} -s -- ${lib.getExe pkgs.regreet}";
-	      user = "jongleur";
-	    };
-      };
+      # On active le support Wayland pour SDDM lui-même (plus moderne)
+      wayland.enable = true;
+      # On peut choisir un thème ici (le thème "sugar-candy" est très populaire)
+      theme = "maya"; 
     };
-
-    programs.regreet = {
-      enable = true;
-      settings = {
-        general = {
-          default_session = "niri";
-        };
-        background = {
-          path = "/home/jongleur/nixos_v2/wallpapers/space.png"; # Change le chemin !
-          fit = "Cover";
-        };
-        gtktremedy = {
-          theme_name = "Adwaita-dark";
-          cursor_theme_name = "Bibata-Modern-Classic";
-          font_name = "Cantarell 11";
-        };
-      };
+    services.xserver.xkb = {
+      layout = "be";
+      variant = "";
     };
     # VPN Settings
     services.mullvad-vpn.enable = true;
