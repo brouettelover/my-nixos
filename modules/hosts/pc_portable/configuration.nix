@@ -33,7 +33,10 @@
       keepassxc
       mullvad-vpn
       quickemu     
+      # Session manager
       sddm-astronaut
+      libsForQt5.qt5.qtquickcontrols2
+      libsForQt5.qt5.qtsvg
       libsForQt5.qt5.qtgraphicaleffects
     ];
      
@@ -132,7 +135,7 @@
       # On active le support Wayland pour SDDM lui-même (plus moderne)
       wayland.enable = true;
       # On peut choisir un thème ici (le thème "sugar-candy" est très populaire)
-      theme = "astronaut"; 
+      theme = "sddm-astronaut"; 
     };
     services.xserver.xkb = {
       layout = "be";
@@ -145,17 +148,6 @@
     services.gvfs.enable = true; # Add usb mount in file manager   
     services.udisks2.enable = true; # auto mount usb
     services.devmon.enable = true; # auto mount usb
-
-    systemd.services.greetd.serviceConfig =  {
-      Type = "idle";
-      StandardInput = "tty";
-      StandardOutput = "tty";
-      StandardError = "journal";
-      TTYReset = true;
-      TTYVHangup = true;
-      TTYDisallocate = true;
-    };
-    #programs.niri.enable = true;
 
     time.timeZone = "Europe/Brussels";
  
