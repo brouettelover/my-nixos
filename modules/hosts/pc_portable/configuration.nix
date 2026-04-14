@@ -130,7 +130,7 @@
       enable = true;
       settings = {
         default_session =  {
-	      command = "${lib.getExe pkgs.cage} -s -- ${lib.getExe pkgs.regreet}";
+	      command = "XKB_DEFAULT_LAYOUT=be ${lib.getExe pkgs.cage} -s -- ${lib.getExe pkgs.regreet}";
 	      user = "jongleur";
 	    };
       };
