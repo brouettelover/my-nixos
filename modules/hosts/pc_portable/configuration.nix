@@ -74,7 +74,7 @@
     users.users.jongleur = {
       isNormalUser = true;
       description = "jongleur";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "video" "render" ];
     };
 
     networking = {
@@ -135,7 +135,7 @@
       # On active le support Wayland pour SDDM lui-même (plus moderne)
       wayland.enable = true;
       # On peut choisir un thème ici (le thème "sugar-candy" est très populaire)
-      theme = "sddm-astronaut"; 
+      theme = "astronaut"; 
     };
     services.xserver.xkb = {
       layout = "be";
