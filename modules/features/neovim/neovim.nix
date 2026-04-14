@@ -11,7 +11,7 @@
     pkgs,
     ...
   }: let
-    selfpkgs = self.packages."${pkgs.system}";
+    selfpkgs = self.packages.${pkgs.stdenv.hostPlatform.system};
   in {
     imports = [wlib.wrapperModules.neovim];
 
