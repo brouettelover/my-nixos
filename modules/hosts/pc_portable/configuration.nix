@@ -35,9 +35,13 @@
       quickemu     
       # Session manager
       sddm-astronaut
-      libsForQt5.qt5.qtquickcontrols2
-      libsForQt5.qt5.qtsvg
-      libsForQt5.qt5.qtgraphicaleffects
+      qt6.qtmultimedia      # qt6-multimedia
+      qt6.qtsvg             # qt6-svg
+      qt6.qtvirtualkeyboard # qt6-virtualkeyboard
+    
+      # Souvent nécessaire pour les effets de flou/graphiques en Qt6
+      qt6.qt5compat         
+      kdePackages.qtdeclarative 
     ];
      
     boot = {
@@ -135,6 +139,7 @@
       # On active le support Wayland pour SDDM lui-même (plus moderne)
       wayland.enable = true;
       # On peut choisir un thème ici (le thème "sugar-candy" est très populaire)
+      package = pkgs.kdePackages.sddm; 
       theme = "sddm-astronaut-theme"; 
     };
     services.xserver.xkb = {
