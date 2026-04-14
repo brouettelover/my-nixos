@@ -35,13 +35,6 @@
       quickemu     
       # Session manager
       sddm-astronaut
-      qt6.qtmultimedia      # qt6-multimedia
-      qt6.qtsvg             # qt6-svg
-      qt6.qtvirtualkeyboard # qt6-virtualkeyboard
-    
-      # Souvent nécessaire pour les effets de flou/graphiques en Qt6
-      qt6.qt5compat         
-      kdePackages.qtdeclarative 
     ];
      
     boot = {
@@ -141,6 +134,12 @@
       # On peut choisir un thème ici (le thème "sugar-candy" est très populaire)
       package = pkgs.kdePackages.sddm; 
       theme = "sddm-astronaut-theme"; 
+      extraPackages = with pkgs.kdePackages; [
+        qtmultimedia
+        qtsvg
+        qtvirtualkeyboard
+        qt5compat # Pour la rétrocompatibilité si le thème en a besoin
+      ];
     };
     services.xserver.xkb = {
       layout = "be";
