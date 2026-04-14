@@ -32,8 +32,8 @@
       python3
       keepassxc
       mullvad-vpn
-      quickemu      
-      sddm-maya-theme
+      quickemu     
+      sddm-astronaut
       libsForQt5.qt5.qtgraphicaleffects
     ];
      
@@ -132,7 +132,7 @@
       # On active le support Wayland pour SDDM lui-même (plus moderne)
       wayland.enable = true;
       # On peut choisir un thème ici (le thème "sugar-candy" est très populaire)
-      theme = "maya"; 
+      theme = "astronaut"; 
     };
     services.xserver.xkb = {
       layout = "be";
