@@ -31,6 +31,7 @@
       wl-clipboard
       python3
       keepassxc
+      cage
       mullvad-vpn
       quickemu      
     ];
@@ -129,9 +130,27 @@
       enable = true;
       settings = {
         default_session =  {
-	      command = "${pkgs.tuigreet}/bin/tuigreet --theme border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red --time --remember --cmd niri";
+	      command = "${lib.getExe pkgs.cage} -s -- ${lib.getExe pkgs.greetd.regreet}"
 	      user = "jongleur";
 	    };
+      };
+    };
+
+    programs.regreet = {
+      enable = true;
+      settings = {
+        general = {
+          default_session = "niri";
+        };
+        background = {
+          path = "/home/jongleur/nixos_v2/wallpapers/space.png"; # Change le chemin !
+          fit = "Cover";
+        };
+        gtktremedy = {
+          theme_name = "Adwaita-dark";
+          cursor_theme_name = "Bibata-Modern-Classic";
+          font_name = "Cantarell 11";
+        };
       };
     };
     # VPN Settings
