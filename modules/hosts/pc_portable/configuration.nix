@@ -35,6 +35,8 @@
       quickemu     
       # Session manager
       sddm-astronaut
+      # Documentation
+      zeal
     ];
      
     boot = {
