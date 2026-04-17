@@ -36,7 +36,7 @@
       # Session manager
       sddm-astronaut
       # Documentation
-      zeal
+      obsidian
     ];
      
     boot = {

@@ -59,6 +59,9 @@
       pkgs.nixd
       pkgs.alejandra
       pkgs.ffmpeg-full
+      pkgs.marksman
+      pkgs.markdownlint-cli2
+      pkgs.pandoc
       selfpkgs.vjxl-format
     ];
 
@@ -100,6 +103,8 @@
         p.fastaction-nvim
         p.mini-files
         p.codecompanion-nvim
+        p.render-markdown-nvim
+        p.markdown-preview-nvim
       ];
     };
   };
