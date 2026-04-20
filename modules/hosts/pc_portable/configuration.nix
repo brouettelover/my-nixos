@@ -39,6 +39,7 @@
       obsidian
       # VPN
       wireguard-tools
+      networkmanagerapplet
     ];
      
     boot = {
