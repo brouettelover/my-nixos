@@ -37,6 +37,8 @@
       sddm-astronaut
       # Documentation
       obsidian
+      # VPN
+      wireguard-tools
     ];
      
     boot = {
