@@ -158,6 +158,10 @@
     services.udisks2.enable = true; # auto mount usb
     services.devmon.enable = true; # auto mount usb
 
+    virtualisation.virtualbox.host.enable = true;
+    users.extraGroups.vboxusers.members = [ "jongleur" ];
+    virtualisation.virtualbox.guest.enable = true;
+    virtualisation.virtualbox.guest.dragAndDrop = true;
     time.timeZone = "Europe/Brussels";
  
     system.stateVersion = "25.11";

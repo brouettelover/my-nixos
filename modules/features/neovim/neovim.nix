@@ -62,6 +62,7 @@
       pkgs.marksman
       pkgs.markdownlint-cli2
       pkgs.pandoc
+      pkgs.clang
       selfpkgs.vjxl-format
     ];
 
