@@ -40,6 +40,8 @@
       # VPN
       wireguard-tools
       networkmanagerapplet
+      # openclouc
+      opencloud-desktop
     ];
      
     boot = {
@@ -151,8 +153,8 @@
       variant = "";
     };
     # VPN Settings
-    services.mullvad-vpn.enable = true;
-    services.mullvad-vpn.package = pkgs.mullvad-vpn;
+    services.mullvad-vpn.enable = false;
+    #services.mullvad-vpn.package = pkgs.mullvad-vpn;
     services.resolved.enable = true;
     services.gvfs.enable = true; # Add usb mount in file manager   
     services.udisks2.enable = true; # auto mount usb
