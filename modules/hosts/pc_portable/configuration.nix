@@ -42,6 +42,10 @@
       networkmanagerapplet
       # openclouc
       opencloud-desktop
+      # LibreOffice
+      libreoffice-qt
+      hunspell
+      hunspellDicts.fr_BE
     ];
      
     boot = {
