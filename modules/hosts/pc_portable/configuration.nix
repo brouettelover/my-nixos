@@ -45,7 +45,7 @@
       # LibreOffice
       libreoffice-qt
       hunspell
-      hunspellDicts.fr_BE
+      hunspellDicts.fr
     ];
      
     boot = {
