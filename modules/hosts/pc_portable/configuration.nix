@@ -37,6 +37,8 @@
       sddm-astronaut
       # Documentation
       obsidian
+      # Disk manager
+      gparted
       # VPN
       wireguard-tools
       networkmanagerapplet
