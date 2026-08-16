@@ -51,6 +51,8 @@
       claude-code
       # project tracker
       nodejs # to manager next.js
+      prisma-engines_7
+      openssl
     ];
      
     boot = {
