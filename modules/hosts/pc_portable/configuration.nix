@@ -49,6 +49,8 @@
       hunspell
       # Claude ai
       claude-code
+      # project tracker
+      nodejs # to manager next.js
     ];
      
     boot = {
