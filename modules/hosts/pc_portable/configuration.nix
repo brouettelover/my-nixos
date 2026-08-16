@@ -47,6 +47,8 @@
       # LibreOffice
       libreoffice-qt
       hunspell
+      # Claude ai
+      claude-code
     ];
      
     boot = {
