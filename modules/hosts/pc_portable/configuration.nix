@@ -16,6 +16,7 @@
       self.nixosModules.network_analysis
       self.nixosModules.network_exploit
       self.nixosModules.file_manager
+      self.nixosModules.claude-code
     ];
 
 
