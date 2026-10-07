@@ -50,7 +50,7 @@
       '';
     };
 
-    config.extraPackages = [
+    config.runtimePkgs = [
       pkgs.lua-language-server
       pkgs.astro-language-server
       pkgs.typescript-language-server
