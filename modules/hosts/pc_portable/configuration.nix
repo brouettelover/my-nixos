@@ -19,6 +19,7 @@
       self.nixosModules.unfree
       self.nixosModules.claude-code
       self.nixosModules.discord
+      self.nixosModules.ankama-launcher
     ];
 
     programs.appimage = {
