@@ -17,12 +17,14 @@
       self.nixosModules.network_exploit
       self.nixosModules.file_manager
       self.nixosModules.unfree
-      self.nixosModules.ankama-launcher
       self.nixosModules.claude-code
       self.nixosModules.discord
     ];
 
-
+    programs.appimage = {
+      enable = true;
+      binfmt = true;
+    };
     programs.nix-ld.enable = true;
     programs.gamescope.enable = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
