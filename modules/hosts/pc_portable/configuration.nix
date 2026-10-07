@@ -24,6 +24,7 @@
 
 
     programs.nix-ld.enable = true;
+    programs.gamescope.enable = true;
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     environment.systemPackages = with pkgs; [
       vim
