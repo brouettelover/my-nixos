@@ -16,6 +16,8 @@
       self.nixosModules.network_analysis
       self.nixosModules.network_exploit
       self.nixosModules.file_manager
+      self.nixosModules.unfree
+      self.nixosModules.ankama-launcher
       self.nixosModules.claude-code
     ];
 
@@ -54,7 +56,9 @@
       nodejs # to manager next.js
       prisma-engines_7
       openssl
+      
     ];
+
      
     boot = {
       #kernelPackages = pkgs.linuxPackages_latest;
