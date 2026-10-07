@@ -2,11 +2,9 @@
   flake.nixosModules.dofus = { pkgs, ... }: let
     dofus = pkgs.writeShellApplication {
       name = "dofus";
-      runtimeInputs = [ pkgs.umu-launcher pkgs.curl pkgs.findutils ];
+      runtimeInputs = [ pkgs.wineWow64Packages.stable pkgs.curl pkgs.findutils ];
       text = ''
-        export WINEPREFIX="$HOME/.local/share/dofus-proton"
-        export GAMEID="umu-dofus"
-        export PROTONPATH="GE-Proton"
+        export WINEPREFIX="$HOME/.local/share/dofus-wine"
 
         find_launcher() {
           find "$WINEPREFIX/drive_c" -iname "Ankama Launcher.exe" -print -quit 2>/dev/null || true
@@ -22,7 +20,7 @@
             curl -fL -o "$installer" \
               "https://launcher.cdn.ankama.com/installers/production/Ankama%20Launcher-Setup.exe"
           fi
-          umu-run "$installer"
+          wine "$installer"
           launcher="$(find_launcher)"
         fi
 
@@ -31,13 +29,13 @@
           exit 1
         fi
 
-        exec umu-run "$launcher" "$@"
+        exec wine "$launcher" "$@"
       '';
     };
 
     dofusUrlHandler = pkgs.makeDesktopItem {
       name = "dofus-zaap";
-      desktopName = "Ankama Launcher (Proton)";
+      desktopName = "Ankama Launcher (Wine)";
       exec = "dofus %u";
       mimeTypes = [ "x-scheme-handler/zaap" ];
       noDisplay = true;
