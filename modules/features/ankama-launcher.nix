@@ -1,14 +1,23 @@
 {
-  flake.nixosModules.ankama-launcher = { pkgs, ... }: {
+  flake.nixosModules.ankama-launcher = { pkgs, ... }: let
+    ankama = pkgs.ankama-launcher.override {
+      appimageTools = pkgs.appimageTools // {
+        wrapType2 = args: pkgs.appimageTools.wrapType2 (args // {
+          extraPkgs = p: (args.extraPkgs or (_: [ ])) p ++ [
+            p.libxrandr
+            p.libxinerama
+            p.libxext
+            p.libx11
+          ];
+        });
+      };
+    };
+  in {
     unfreePackages = [ "ankama-launcher" ];
 
-    programs.gamescope.enable = true;
-
     environment.systemPackages = [
-      pkgs.ankama-launcher
-      (pkgs.writeShellScriptBin "dofus" ''
-        exec gamescope -W 1920 -H 1080 -f -- ankama-launcher --no-sandbox "$@"
-      '')
+      ankama
+      pkgs.strace
     ];
   };
 }
