@@ -19,6 +19,7 @@
       self.nixosModules.unfree
       self.nixosModules.ankama-launcher
       self.nixosModules.claude-code
+      self.nixosModules.discord
     ];
 
 
@@ -56,7 +57,7 @@
       nodejs # to manager next.js
       prisma-engines_7
       openssl
-      
+      vesktop
     ];
 
      
