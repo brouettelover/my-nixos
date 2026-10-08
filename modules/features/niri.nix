@@ -41,6 +41,7 @@
             accel-profile = "flat";
           };
         };
+
         binds = {
           "Mod+Return".spawn = config.terminal;
           
@@ -122,7 +123,10 @@
             active-color = "#${self.themeNoHash.base09}";
           };
         };
-
+        window-rules = [{
+            matches = [ { app-id = "(?i)dofus"; } ];
+            open-fullscreen = true;
+        }];
         workspaces = let
           settings = {layout.gaps = 5;};
         in {
