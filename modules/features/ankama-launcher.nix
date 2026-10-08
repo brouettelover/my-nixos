@@ -48,8 +48,10 @@
 
     environment.systemPackages = [
       ankama
-      pkgs.xwayland-satellite # Xwayland pour niri, lancé automatiquement
-      pkgs.strace
+      pkgs.gamescope
+      (pkgs.writeShellScriptBin "dofus" ''
+      exec ${pkgs.gamescope}/bin/gamescope -W 1920 -H 1080 -f -- ${ankama}/bin/ankama-launcher "$@"
+      '')
     ];
 
     hardware.graphics.enable = true;
