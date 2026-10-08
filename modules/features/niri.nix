@@ -41,10 +41,6 @@
             accel-profile = "flat";
           };
         };
-        window-rule = {
-            match app-id=r#"(?i)dofus"#;
-            open-fullscreen true;
-        },
         binds = {
           "Mod+Return".spawn = config.terminal;
           
