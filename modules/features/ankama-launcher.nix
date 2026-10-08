@@ -1,17 +1,15 @@
 {
-  flake.nixosModules.ankama-launcher = { pkgs, ... }: let
+  flake.nixosModules.ankama-launcher = { config, pkgs, lib, ... }: let
     ankama = pkgs.ankama-launcher.override {
       appimageTools = pkgs.appimageTools // {
         wrapType2 = args: pkgs.appimageTools.wrapType2 (args // {
           extraPkgs = p: (args.extraPkgs or (_: [ ])) p ++ (with p; [
-            # .NET / Unity (cause n°1 de cette erreur)
+            # .NET / Unity
             icu
             openssl
-            krb5
             zlib
-            libuuid
 
-            # X11 / entrées
+            # X11
             libx11
             libxext
             libxrandr
@@ -19,41 +17,45 @@
             libxcursor
             libxi
             libxrender
-            libxscrnsaver
-            libxcb
             libxkbcommon
 
-            # Rendu
+            # Rendu / son
             libGL
-            libdrm
-            mesa
             vulkan-loader
-            fontconfig
-            freetype
-
-            # Son
             libpulseaudio
-            alsa-lib
           ]);
-
-          # Repli si ICU n'est toujours pas trouvé : décommente
-          # profile = (args.profile or "") + ''
-          #   export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
-          # '';
         });
       };
+    };
+
+    gamescope = config.programs.gamescope.package;
+
+    dofus = pkgs.writeShellScriptBin "dofus" ''
+      exec ${lib.getExe gamescope} \
+        -W 1920 -H 1080 \
+        -w 1920 -h 1080 \
+        -f \
+        -- ${lib.getExe ankama} "$@"
+    '';
+
+    dofusDesktop = pkgs.makeDesktopItem {
+      name = "dofus";
+      desktopName = "Dofus";
+      comment = "Ankama Launcher via gamescope";
+      exec = "${lib.getExe dofus}";
+      icon = "ankama-launcher";
+      categories = [ "Game" ];
     };
   in {
     unfreePackages = [ "ankama-launcher" ];
 
+    programs.gamescope.enable = true;
+    hardware.graphics.enable = true;
+
     environment.systemPackages = [
       ankama
-      pkgs.gamescope
-      (pkgs.writeShellScriptBin "dofus" ''
-      exec ${pkgs.gamescope}/bin/gamescope -W 1920 -H 1080 -f -- ${ankama}/bin/ankama-launcher "$@"
-      '')
+      dofus
+      dofusDesktop
     ];
-
-    hardware.graphics.enable = true;
   };
 }
