@@ -8,6 +8,7 @@
             icu
             openssl
             zlib
+            stdenv.cc.cc.lib # libstdc++.so.6 - requis par libScreenManagerNativeProxy.so (et d'autres plugins natifs Unity)
 
             # X11
             libx11
@@ -18,6 +19,9 @@
             libxi
             libxrender
             libxkbcommon
+
+            # Wayland (fallback utilisé par libScreenManagerNativeProxy.so si le chemin X11 échoue)
+            wayland
 
             # Rendu / son
             libGL
