@@ -1,0 +1,6 @@
+*.iso
+*.qcow2
+*.fd
+*.log
+*.ports
+unattended/

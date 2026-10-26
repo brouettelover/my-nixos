@@ -19,7 +19,8 @@
         pkgs.smbmap
         pkgs.enum4linux-ng
         pkgs.bloodhound-py
-        (pkgs.python3.withPackages (ps: [ ps.impacket ]))
+        pkgs.samba # rpcclient : interaction manuelle avec les pipes RPC/DCOM
+        (pkgs.python3.withPackages (ps: [ ps.impacket ])) # dont rpcdump.py, rpcmap.py
       ];
     };
   };
