@@ -25,6 +25,7 @@
       '';
     };
     config.env.LADSPA_PATH = "${pkgs.deepfilternet}lib/ladspa/libdeep_filter_ladspa.so";
+    config.env.POWERSHELL_ES_BUNDLE_PATH = "${pkgs.powershell-editor-services}/lib/powershell-editor-services";
     config.settings.config_directory =
       if config.settings.test_mode
       then config.settings.unwrapped_config
@@ -64,6 +65,12 @@
       pkgs.pandoc
       pkgs.clang
       selfpkgs.vjxl-format
+
+      # python / C# / powershell LSPs
+      pkgs.basedpyright
+      pkgs.csharp-ls
+      pkgs.powershell
+      pkgs.powershell-editor-services
     ];
 
     config.specs.start = let

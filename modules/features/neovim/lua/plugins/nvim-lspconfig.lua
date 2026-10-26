@@ -88,15 +88,20 @@ return {
         vim.lsp.config("gleam", { on_attach = on_attach, capabilities = capabilities })
         vim.lsp.enable("gleam")
 
-        -- ============================= VJXL ============================= --
+        -- Python
+        vim.lsp.config("basedpyright", { on_attach = on_attach, capabilities = capabilities })
+        vim.lsp.enable("basedpyright")
 
-        vim.lsp.config['parser4'] = {
-            cmd = { '/home/yurii/Videos/parser4/target/release/parser4', 'lsp' },
-            filetypes = { 'vjxl' },
-            root_markers = { '.git' },
-            root_dir = vim.fn.getcwd(),
-        }
-        vim.lsp.config("parser4", { on_attach = on_attach, capabilities = capabilities })
-        vim.lsp.enable('parser4')
+        -- C#
+        vim.lsp.config("csharp_ls", { on_attach = on_attach, capabilities = capabilities })
+        vim.lsp.enable("csharp_ls")
+
+        -- PowerShell
+        vim.lsp.config("powershell_es", {
+            on_attach = on_attach,
+            capabilities = capabilities,
+            bundle_path = vim.env.POWERSHELL_ES_BUNDLE_PATH,
+        })
+        vim.lsp.enable("powershell_es")
     end,
 }

@@ -14,7 +14,10 @@
       paths = [
         pkgs.ghidra
         pkgs.gef # GEF inclut déjà GDB configuré !
-        (pkgs.python3.withPackages (ps: [ ps.pwntools ]))
+        (pkgs.python3.withPackages (ps: [ ps.pwntools ps.ropper ]))
+        pkgs.pwninit
+        pkgs.checksec
+        pkgs.one_gadget
       ];
     };
   };
