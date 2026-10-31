@@ -22,6 +22,7 @@
       self.nixosModules.ankama-launcher
       self.nixosModules.ad_lab_network
       self.nixosModules.ad_research
+      self.nixosModules.deluge
     ];
 
     programs.appimage = {
@@ -40,6 +41,7 @@
       unzip
       wl-clipboard
       python3
+      python3Packages.pip
       keepassxc
       mullvad-vpn
       quickemu     
