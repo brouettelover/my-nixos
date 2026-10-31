@@ -72,11 +72,13 @@
       pkgs.xreader
       pkgs.tumbler
       pkgs.ffmpegthumbnailer
+      pkgs.vlc
       selfPkgs.imv-desktop
       selfPkgs.nvim-kitty-desktop
     ];
 
-    # Associations par défaut : images -> imv, PDF -> xreader, texte -> nvim+kitty.
+    # Associations par défaut : images -> imv, PDF -> xreader, texte -> nvim+kitty,
+    # audio/vidéo -> vlc.
     environment.etc."xdg/mimeapps.list".text = ''
       [Default Applications]
       image/png=imv.desktop
@@ -88,6 +90,42 @@
       image/svg+xml=imv.desktop
       application/pdf=xreader.desktop
       text/plain=nvim-kitty.desktop
+      audio/mpeg=vlc.desktop
+      audio/mp4=vlc.desktop
+      audio/ogg=vlc.desktop
+      audio/flac=vlc.desktop
+      audio/wav=vlc.desktop
+      audio/x-wav=vlc.desktop
+      audio/aac=vlc.desktop
+      audio/x-matroska=vlc.desktop
+      video/mp4=vlc.desktop
+      video/x-matroska=vlc.desktop
+      video/webm=vlc.desktop
+      video/x-msvideo=vlc.desktop
+      video/quicktime=vlc.desktop
+      video/mpeg=vlc.desktop
+      video/ogg=vlc.desktop
+      video/x-flv=vlc.desktop
+      video/3gpp=vlc.desktop
+
+      [Added Associations]
+      audio/mpeg=vlc.desktop;
+      audio/mp4=vlc.desktop;
+      audio/ogg=vlc.desktop;
+      audio/flac=vlc.desktop;
+      audio/wav=vlc.desktop;
+      audio/x-wav=vlc.desktop;
+      audio/aac=vlc.desktop;
+      audio/x-matroska=vlc.desktop;
+      video/mp4=vlc.desktop;
+      video/x-matroska=vlc.desktop;
+      video/webm=vlc.desktop;
+      video/x-msvideo=vlc.desktop;
+      video/quicktime=vlc.desktop;
+      video/mpeg=vlc.desktop;
+      video/ogg=vlc.desktop;
+      video/x-flv=vlc.desktop;
+      video/3gpp=vlc.desktop;
     '';
   };
 }
