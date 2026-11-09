@@ -1,4 +1,4 @@
-{
+{ inputs, ... }: {
   # World of Warcraft (Battle.net) via umu-launcher + GE-Proton.
   #
   # Cible matérielle : Ryzen 5 PRO 5650U + Radeon Vega 7 (RADV),
@@ -10,6 +10,16 @@
 
     gamescope = config.programs.gamescope.package;
     protonGE = pkgs.proton-ge-bin.steamcompattool;
+
+    # wowup-cf de la nixpkgs principale (2.23.1) ne connaît pas encore le
+    # client "WoW Forever" (_forever_, sorti le 4/11/2026) et plante dessus
+    # (getWtfPath undefined). Le support arrive en 2.24.1 (18/10/2026) : on
+    # prend wowup-cf depuis une nixpkgs plus récente, sans bumper la
+    # nixpkgs principale (ça casserait noctalia-shell ailleurs).
+    wowupCf = (import inputs.nixpkgs-wowup {
+      inherit (pkgs.stdenv.hostPlatform) system;
+      config.allowUnfree = true;
+    }).wowup-cf;
 
     # Résolution de rendu par défaut (surchargeable : WOW_WIDTH / WOW_HEIGHT).
     renderWidth = 1280;
@@ -338,7 +348,7 @@
 
       pkgs.umu-launcher
       pkgs.mangohud
-      pkgs.wowup-cf      # gestionnaire d'addons CurseForge
+      wowupCf            # gestionnaire d'addons CurseForge (>=2.24.1, support WoW Forever)
       pkgs.protonup-qt   # pour récupérer d'autres GE-Proton si besoin
       pkgs.lact          # courbes de ventilation / limites de l'iGPU
     ];
