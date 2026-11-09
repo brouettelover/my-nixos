@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=ghibli
-Description=Forest night boot splash with a soot sprite and fireflies
-ModuleName=script
-
-[script]
-ImageDir=@out@/share/plymouth/themes/ghibli
-ScriptFile=@out@/share/plymouth/themes/ghibli/ghibli.script

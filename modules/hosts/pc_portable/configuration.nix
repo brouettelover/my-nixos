@@ -7,7 +7,6 @@
       self.nixosModules.pc_portable_hardware_configuration
       self.nixosModules.niri
       self.nixosModules.noctalia
-      self.nixosModules.plymouth_ghibli
       self.nixosModules.fish
       self.nixosModules.gaming
       self.nixosModules.neovim
@@ -88,7 +87,18 @@
       #kvm_amd -> pour qemu
       #v4l2 -> option dans teams,zoom,...
 
-      # Plymouth theme ("ghibli") is configured in self.nixosModules.plymouth_ghibli
+      plymouth = {
+        enable = true; # animation au boot
+         # 1. On ne prend QUE le thème qui nous intéresse
+            themePackages = [
+            (pkgs.adi1090x-plymouth-themes.override {
+                selected_themes = [ "cross_hud" ]; # <--- Remplace par ton préféré (ex: "target", "spinner", etc.)
+            })
+        ];
+
+        # 2. On spécifie le même nom ici
+        theme = "cross_hud";
+      };
     };
     
     users.users.jongleur = {
