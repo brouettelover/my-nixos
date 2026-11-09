@@ -6,7 +6,6 @@
     imports = [
       self.nixosModules.pc_portable_hardware_configuration
       self.nixosModules.niri
-      self.nixosModules.noctalia
       self.nixosModules.fish
       self.nixosModules.gaming
       self.nixosModules.neovim

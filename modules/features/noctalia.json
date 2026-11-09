@@ -619,8 +619,8 @@
       "backlightDeviceMappings": []
     },
     "colorSchemes": {
-      "useWallpaperColors": false,
-      "predefinedScheme": "Ghibli",
+      "useWallpaperColors": true,
+      "predefinedScheme": "Kanagawa",
       "darkMode": true,
       "schedulingMode": "off",
       "manualSunrise": "06:30",
@@ -715,7 +715,7 @@
     "openedPanel": "",
     "lockScreenActive": false,
     "wallpapers": {
-      "eDP-1": "/home/jongleur/nixos_v2/wallpapers/ghibli_forest.png"
+      "eDP-1": "/home/jongleur/nixos_v2/wallpapers/moonmower.png"
     },
     "desktopWidgetsEditMode": false,
     "display": {

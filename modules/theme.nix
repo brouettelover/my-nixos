@@ -1,22 +1,21 @@
 {...}: let
-  # Studio Ghibli inspired palette: forest greens, sky blues and warm sunset tones
   theme = {
-    base00 = "#263a2e"; # bg - deep forest green (Totoro woods at dusk)
-    base01 = "#33493d"; # dark moss
-    base02 = "#44604f"; # moss green
-    base03 = "#5c7a63"; # muted sage
-    base04 = "#9fae8a"; # soft sage / khaki
-    base05 = "#d8c9a3"; # warm sand
-    base06 = "#eee3c8"; # fg - cream
-    base07 = "#f7ecd0"; # light fg - parchment
-    base08 = "#d1684e"; # terracotta red (rooftops, Calcifer embers)
-    base09 = "#e0984f"; # warm amber (sunset, lanterns)
-    base0A = "#e8c468"; # golden yellow (wheat fields)
-    base0B = "#8aab6b"; # grass green (Totoro)
-    base0C = "#6fb5ad"; # soft teal (Ponyo's sea)
-    base0D = "#6d93b8"; # sky blue (Castle in the Sky)
-    base0E = "#c98ea3"; # dusty pink (sakura, dusk sky)
-    base0F = "#a9693f"; # earthy brown (tree trunk)
+    base00 = "#242424"; # bg
+    base01 = "#3c3836"; # dark
+    base02 = "#504945";
+    base03 = "#665c54";
+    base04 = "#bdae93";
+    base05 = "#d5c4a1";
+    base06 = "#ebdbb2"; # fg
+    base07 = "#fbf1c7"; # light fg
+    base08 = "#fb4934"; # red
+    base09 = "#fe8019"; # orange
+    base0A = "#fabd2f"; # yellow
+    base0B = "#b8bb26"; # green
+    base0C = "#8ec07c"; # cyan
+    base0D = "#7daea3"; # blue
+    base0E = "#e089a1"; # magenta
+    base0F = "#f28534"; # orange
   };
 
   stripHash = str:
