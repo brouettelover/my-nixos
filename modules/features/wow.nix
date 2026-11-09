@@ -165,31 +165,51 @@
         export MANGOHUD_CONFIGFILE="${mangohudConf}"
 
         flavor="''${1:-forever}"
+        # Code produit Battle.net pour --exec="launch <code>" (confirmé via le
+        # script Lutris officiel de chaque jeu). Lancer Wow.exe directement
+        # sans passer par Battle.net.exe saute la session SSO : le jeu
+        # retombe sur son propre écran de connexion et ne reconnaît pas le
+        # compte déjà connecté dans Battle.net.
         case "$flavor" in
-          forever|_forever_)            flavor="_forever_" ;;
-          retail|_retail_)              flavor="_retail_" ;;
-          classic|_classic_)            flavor="_classic_" ;;
-          era|classic_era|_classic_era_) flavor="_classic_era_" ;;
-          ptr|_ptr_)                    flavor="_ptr_" ;;
+          forever|_forever_)             flavor="_forever_";     code="WoWF" ;;
+          retail|_retail_)                flavor="_retail_";      code="WoW"  ;;
+          classic|_classic_)              flavor="_classic_";     code="WoWC" ;;
+          era|classic_era|_classic_era_)  flavor="_classic_era_"; code="WoWC" ;;
+          ptr|_ptr_)                      flavor="_ptr_";         code="" ;;
           *) echo "Version inconnue : $flavor (forever|retail|classic|era|ptr)" >&2; exit 1 ;;
         esac
-
-        exe="$(find "$WINEPREFIX/drive_c" -maxdepth 6 \
-          -ipath "*World of Warcraft/$flavor/Wow.exe" -print -quit 2>/dev/null || true)"
-
-        if [ -z "$exe" ]; then
-          echo "Wow.exe ($flavor) introuvable dans $WINEPREFIX." >&2
-          echo "Installe le jeu via Battle.net : wow-launcher" >&2
-          exit 1
-        fi
 
         width="''${WOW_WIDTH:-${toString renderWidth}}"
         height="''${WOW_HEIGHT:-${toString renderHeight}}"
 
-        cd "$(dirname "$exe")"
+        if [ -n "$code" ]; then
+          # Chemin normal : Battle.net gère la connexion, puis lance et
+          # patche $flavor lui-même.
+          bnet="$WINEPREFIX/drive_c/Program Files (x86)/Battle.net/Battle.net.exe"
+          if [ ! -f "$bnet" ]; then
+            echo "Battle.net.exe introuvable dans $WINEPREFIX." >&2
+            echo "Installe-le d'abord : wow-setup" >&2
+            exit 1
+          fi
+          cd "$(dirname "$bnet")"
+          launchCmd=(umu-run "$bnet" --exec="launch $code")
+        else
+          # PTR : pas de code --exec connu, on retombe sur l'ancien
+          # comportement (lancement direct de Wow.exe, connexion manuelle).
+          exe="$(find "$WINEPREFIX/drive_c" -maxdepth 6 \
+            -ipath "*World of Warcraft/$flavor/Wow.exe" -print -quit 2>/dev/null || true)"
+          if [ -z "$exe" ]; then
+            echo "Wow.exe ($flavor) introuvable dans $WINEPREFIX." >&2
+            echo "Installe le jeu via Battle.net : wow-launcher" >&2
+            exit 1
+          fi
+          echo "Pas de code Battle.net connu pour $flavor : connexion manuelle requise." >&2
+          cd "$(dirname "$exe")"
+          launchCmd=(umu-run "$exe")
+        fi
 
         if [ -n "''${WOW_NO_GAMESCOPE:-}" ]; then
-          exec gamemoderun umu-run "$exe"
+          exec gamemoderun "''${launchCmd[@]}"
         fi
 
         exec ${lib.getExe gamescope} \
@@ -200,7 +220,7 @@
           --force-grab-cursor \
           --mangoapp \
           -f \
-          -- gamemoderun umu-run "$exe"
+          -- gamemoderun "''${launchCmd[@]}"
       '';
     };
 
