@@ -164,6 +164,14 @@
 
         export MANGOHUD_CONFIGFILE="${mangohudConf}"
 
+        # gamescope lance son propre Xwayland interne, qui ne reprend pas le
+        # layout clavier de la session niri hôte (be/AZERTY) : il part sur
+        # "us" par défaut. Wine lit dynamiquement le layout XKB du serveur X
+        # auquel il est connecté (celui de gamescope, donc), d'où le QWERTY
+        # dans le jeu même si l'hôte est bien en be. XKB_DEFAULT_LAYOUT est la
+        # variable standard que Xwayland lit au démarrage pour son keymap.
+        export XKB_DEFAULT_LAYOUT="''${WOW_XKB_LAYOUT:-be}"
+
         flavor="''${1:-forever}"
         # Code produit Battle.net pour --exec="launch <code>" (confirmé via le
         # script Lutris officiel de chaque jeu). Lancer Wow.exe directement
