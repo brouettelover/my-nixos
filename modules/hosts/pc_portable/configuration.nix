@@ -103,7 +103,7 @@
     users.users.jongleur = {
       isNormalUser = true;
       description = "jongleur";
-      extraGroups = [ "networkmanager" "wheel" "video" "render" ];
+      extraGroups = [ "networkmanager" "wheel" "video" "render" "gamemode" ];
     };
 
     networking = {

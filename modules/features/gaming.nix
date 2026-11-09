@@ -46,7 +46,15 @@
         remotePlay.openFirewall = true;
         #dedicatedServer.openFirewall = true;
       };
-    zramSwap.enable = true;
+    # 4 Gio de RAM sont réservés à l'iGPU : il ne reste que ~11 Gio pour WoW
+    # + Battle.net. zstd compresse ~3:1, donc 50 % de la RAM en zram donne
+    # l'équivalent de plusieurs Gio utiles sans jamais toucher le disque.
+    zramSwap = {
+      enable = true;
+      algorithm = "zstd";
+      memoryPercent = 50;
+      priority = 100;
+    };
 
 
     imports = [
